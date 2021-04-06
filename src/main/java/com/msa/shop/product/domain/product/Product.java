@@ -1,7 +1,6 @@
 package com.msa.shop.product.domain.product;
 
 import com.msa.shop.product.domain.category.Category;
-import com.msa.shop.product.model.BaseTimeEntity;
 import lombok.AccessLevel;
 import lombok.AllArgsConstructor;
 import lombok.Getter;

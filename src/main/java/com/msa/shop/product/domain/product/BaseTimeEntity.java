@@ -1,4 +1,4 @@
-package com.msa.shop.product.model;
+package com.msa.shop.product.domain.product;
 
 import lombok.Getter;
 import org.springframework.data.annotation.CreatedDate;
