@@ -1,6 +1,6 @@
 package com.msa.shop.product.domain.category;
 
-import com.msa.shop.product.model.BaseTimeEntity;
+import com.msa.shop.product.domain.product.BaseTimeEntity;
 import lombok.AccessLevel;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -13,11 +13,11 @@ import java.util.List;
 @Entity
 @Getter
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
-@AllArgsConstructor
 public class Category extends BaseTimeEntity {
     @EmbeddedId
     private CategoryId id;
 
+    @Column(name = "name", unique = true)
     private String name;
 
     @ManyToOne(fetch = FetchType.LAZY)
@@ -25,8 +25,16 @@ public class Category extends BaseTimeEntity {
     private Category parent;
 
     @OneToMany(mappedBy = "parent")
-    private final List<Category> children = new ArrayList<>();
+    private List<Category> children;
 
+    public Category(CategoryId id, String name) {
+        this.id = id;
+        this.name = name;
+    }
 
-
+    public Category(CategoryId id, String name, Category parent) {
+        this.id = id;
+        this.name = name;
+        this.parent = parent;
+    }
 }

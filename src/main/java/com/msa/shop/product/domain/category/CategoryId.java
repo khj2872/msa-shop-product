@@ -1,20 +1,24 @@
 package com.msa.shop.product.domain.category;
 
-import lombok.AllArgsConstructor;
+import com.msa.shop.product.util.Util;
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
-import lombok.NoArgsConstructor;
 
 import javax.persistence.Column;
 import javax.persistence.Embeddable;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import java.io.Serializable;
 
 @Embeddable
 @Getter
-@NoArgsConstructor
-@AllArgsConstructor
 @EqualsAndHashCode
 public class CategoryId implements Serializable {
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "category_id")
-    private Long id;
+    private String value;
+
+    public CategoryId() {
+        this.value = Util.generateRandomId();
+    }
 }
