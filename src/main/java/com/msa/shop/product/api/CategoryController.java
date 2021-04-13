@@ -1,13 +1,10 @@
 package com.msa.shop.product.api;
 
 import com.msa.shop.product.application.CategoryRequest;
-import com.msa.shop.product.application.CategoryResponse;
 import com.msa.shop.product.application.CategoryService;
 import com.msa.shop.product.application.NoParentCategoryException;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.*;
-
-import java.util.List;
 
 @RestController
 @RequiredArgsConstructor
