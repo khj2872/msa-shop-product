@@ -1,20 +1,26 @@
 package com.msa.shop.product.domain.product;
 
-import lombok.AllArgsConstructor;
+import com.msa.shop.product.util.Util;
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
-import lombok.NoArgsConstructor;
 
 import javax.persistence.Column;
 import javax.persistence.Embeddable;
 import java.io.Serializable;
+import java.util.UUID;
 
 @Embeddable
 @Getter
-@NoArgsConstructor
-@AllArgsConstructor
 @EqualsAndHashCode
 public class ProductId implements Serializable {
     @Column(name = "product_id")
-    private String id;
+    private String value;
+
+    public ProductId() {
+        this.value = generateRandomProductId();
+    }
+
+    public String generateRandomProductId() {
+        return Util.generateRandomId();
+    }
 }

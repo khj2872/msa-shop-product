@@ -30,4 +30,12 @@ public class Product extends BaseTimeEntity {
 
     private double savingRate;
 
+    public void removeStock(long stock) {
+        long restStock = this.stock - stock;
+        if (restStock < 0) {
+            throw new NotEnoughStockException(this.id.getValue());
+        }
+        this.stock = restStock;
+    }
+
 }
