@@ -16,8 +16,8 @@ public class ProductService {
 
     public ProductId createProduct(ProductRequest productRequest) {
         Category category = categoryRepository
-                .findById(productRequest.getCategory().getId())
-                .orElseThrow(() -> new NoProductCategoryException(productRequest.getCategory().getId().getValue()));
+                .findById(productRequest.getCategoryId())
+                .orElseThrow(() -> new NoProductCategoryException(productRequest.getCategoryId().getValue()));
 
         Product product = new Product(
                 new ProductId(),
