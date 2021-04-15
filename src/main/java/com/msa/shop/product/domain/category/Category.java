@@ -2,12 +2,10 @@ package com.msa.shop.product.domain.category;
 
 import com.msa.shop.product.domain.product.BaseTimeEntity;
 import lombok.AccessLevel;
-import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
-import java.util.ArrayList;
 import java.util.List;
 
 @Entity
